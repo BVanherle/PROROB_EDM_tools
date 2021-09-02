@@ -15,5 +15,6 @@ public class ObjectMover : MonoBehaviour
     void Update()
     {
         transform.position += speed;
+        Debug.DrawRay(transform.position, transform.forward, Color.red, 0f, true);
     }
 }
