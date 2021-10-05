@@ -7,7 +7,7 @@ public class PainterControl : MonoBehaviour
 {
     // Start is called before the first frame update
     public ObjectPainter painter;
-    private int m_paintHits = 0;
+    public GameObject secondTarget;
 
     void Start()
     {
@@ -17,17 +17,18 @@ public class PainterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.frameCount == 1000)
+        {
+            Debug.Log("Switch target");
+            painter.SetTargetObject(secondTarget);
+        }
         painter.SetPosition(transform.position, transform.forward);
         if (painter.OnTarget())
         {
-            m_paintHits++;
-            painter.SetColor(Color.Lerp(Color.magenta, Color.cyan, m_paintHits/1000f));
+            painter.SetPaintSpeed(Time.frameCount / 3000f);
+            painter.SetColor(Color.Lerp(Color.magenta, Color.cyan, Time.frameCount / 3000f));
             painter.CreateStroke();
-        } else
-        {
-            Debug.Log("Paint missed target");
         }
-        
     }
 }
 
