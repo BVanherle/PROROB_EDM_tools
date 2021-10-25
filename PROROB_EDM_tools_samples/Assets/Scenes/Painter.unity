@@ -377,7 +377,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -644,6 +644,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1775145638244504493, guid: 8d58488e4113def4682e32d8c642f695,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1775145638305432408, guid: 8d58488e4113def4682e32d8c642f695,
         type: 3}
       propertyPath: m_Name
@@ -718,6 +723,21 @@ PrefabInstance:
         type: 3}
       propertyPath: paintSpeed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775145638573793448, guid: 8d58488e4113def4682e32d8c642f695,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775145638750063969, guid: 8d58488e4113def4682e32d8c642f695,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775145639540546487, guid: 8d58488e4113def4682e32d8c642f695,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d58488e4113def4682e32d8c642f695, type: 3}

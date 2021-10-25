@@ -12,15 +12,25 @@ public class PainterControl : MonoBehaviour
     void Start()
     {
         painter.ShowCursor(true);
+        painter.SetCurrentTrajectoryID(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.frameCount == 1000)
+        if(Time.frameCount == 500)
+        {
+            Debug.Log($"Trajectory ID: {painter.GetTrajectoryAtPosition()}");
+        }
+        if (Time.frameCount == 2000)
+        {
+            Debug.Log($"Trajectory ID: {painter.GetTrajectoryAtPosition()}");
+        }
+        if (Time.frameCount == 1000)
         {
             Debug.Log("Switch target");
             painter.SetTargetObject(secondTarget);
+            painter.SetCurrentTrajectoryID(2);
         }
         painter.SetPosition(transform.position, transform.forward);
         if (painter.OnTarget())
