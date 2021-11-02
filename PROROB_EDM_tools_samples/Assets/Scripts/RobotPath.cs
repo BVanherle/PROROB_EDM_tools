@@ -28,7 +28,7 @@ public class RobotPath : MonoBehaviour
     {
         if(m_lineRenderer != null)
         {
-            Destroy(m_lineRenderer);
+            Destroy(m_lineRenderer.gameObject);
         }
         GameObject lineObject = new GameObject("Line");
         LineRenderer renderer = lineObject.AddComponent<LineRenderer>();
