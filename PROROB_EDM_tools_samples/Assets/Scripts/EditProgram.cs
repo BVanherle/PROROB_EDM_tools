@@ -7,7 +7,7 @@ public class EditProgram : MonoBehaviour
     public GameObject m_targetObject;
     public GameObject m_controller;
 
-    private EditTool m_editTool = null;
+    private EDMTools.EditTool m_editTool = null;
     private RobotPath m_robothPath;
     private Trajectory m_trajectory;
 
@@ -42,7 +42,7 @@ public class EditProgram : MonoBehaviour
         {
             m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Distance Edit Tool");
-            m_editTool = editToolGO.AddComponent<DistanceEditTool>();
+            m_editTool = editToolGO.AddComponent<EDMTools.DistanceEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
             m_editTool.Init(GetSection(), m_targetObject);
 
@@ -50,7 +50,7 @@ public class EditProgram : MonoBehaviour
         {
             m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Free form edit tool");
-            m_editTool = editToolGO.AddComponent<FreeFormEditTool>();
+            m_editTool = editToolGO.AddComponent<EDMTools.FreeFormEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
             m_editTool.Init(GetSection(), m_targetObject);
         }
@@ -58,7 +58,7 @@ public class EditProgram : MonoBehaviour
         {
             m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Direction edit tool");
-            m_editTool = editToolGO.AddComponent<DirectionEditTool>();
+            m_editTool = editToolGO.AddComponent<EDMTools.DirectionEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
             m_editTool.Init(GetSection(), m_targetObject);
         }
