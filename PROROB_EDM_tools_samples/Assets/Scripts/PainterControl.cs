@@ -5,7 +5,25 @@ using EDMTools;
 
 public class PainterControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public struct PaintInstruction
+    {
+        public Vector3 position;
+        public Vector3 direction;
+        public Color color;
+        public float brushSize;
+        public int trajectoryID;
+
+        public PaintInstruction(Vector3 position, Vector3 direction, Color color, float brushSize, int trajectoryID)
+        {
+            this.position = position;
+            this.direction = direction;
+            this.color = color;
+            this.brushSize = brushSize;
+            this.trajectoryID = trajectoryID;
+        }
+    }
+
+
     public ObjectPainter painter;
 
     private bool painting = false;
@@ -14,8 +32,11 @@ public class PainterControl : MonoBehaviour
     private Color[] colors = { Color.red, Color.green, Color.blue};
     private int currentColor = 0;
 
+    private List<PaintInstruction> instructions;
+
     void Start()
     {
+        instructions = new List<PaintInstruction>();
         painter.ShowCursor(true);
         painter.SetCurrentTrajectoryID(currentTrajectory);
     }
@@ -23,12 +44,12 @@ public class PainterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.C))
+        painter.SetPosition(transform.position, transform.forward);
+
+        if (Input.GetKeyDown(KeyCode.C))
 		{
             currentColor++;
-            painter.SetColor(colors[currentColor]);
 		}
-        painter.SetPosition(transform.position, transform.forward);
 
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -36,7 +57,6 @@ public class PainterControl : MonoBehaviour
 			{
                 painting = true;
                 currentTrajectory++;
-                painter.SetCurrentTrajectoryID(currentTrajectory);
 			}
         }
 
@@ -49,8 +69,23 @@ public class PainterControl : MonoBehaviour
 		{
             if (painter.OnTarget())
             {
-                painter.CreateStroke();
+                instructions.Add(new PaintInstruction(transform.position, transform.forward, colors[currentColor], painter.GetBrushSize(), currentTrajectory)) ;
             }
+        }
+
+        Draw();
+    }
+
+    private void Draw()
+    {
+        painter.ResetPaint();
+        foreach(var instruction in instructions)
+        {
+            painter.SetBrushSize(instruction.brushSize);
+            painter.SetColor(instruction.color);
+            painter.SetCurrentTrajectoryID(instruction.trajectoryID);
+            painter.SetPosition(instruction.position, instruction.direction);
+            painter.CreateStroke();
         }
     }
 }

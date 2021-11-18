@@ -17,7 +17,6 @@ public class MouseMoveable : MonoBehaviour
         Vector3 vector = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -z);
         Vector3 pos = Camera.main.ScreenToWorldPoint(vector);
         pos.z = z;
-        Debug.Log(pos);
         transform.position = pos;
     }
 }

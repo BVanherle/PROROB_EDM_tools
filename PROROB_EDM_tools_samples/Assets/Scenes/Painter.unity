@@ -603,12 +603,12 @@ PrefabInstance:
     - target: {fileID: 1775145638305432411, guid: 8d58488e4113def4682e32d8c642f695,
         type: 3}
       propertyPath: brushSize
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1775145638305432411, guid: 8d58488e4113def4682e32d8c642f695,
         type: 3}
       propertyPath: paintSpeed
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1775145638305432411, guid: 8d58488e4113def4682e32d8c642f695,
         type: 3}
