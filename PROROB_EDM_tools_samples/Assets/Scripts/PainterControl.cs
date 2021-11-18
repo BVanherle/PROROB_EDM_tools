@@ -69,7 +69,7 @@ public class PainterControl : MonoBehaviour
 		{
             if (painter.OnTarget())
             {
-                instructions.Add(new PaintInstruction(transform.position, transform.forward, colors[currentColor], painter.GetBrushSize(), currentTrajectory)) ;
+                instructions.Add(new PaintInstruction(transform.position, transform.forward, colors[currentColor % colors.Length], painter.GetBrushSize(), currentTrajectory)) ;
             }
         }
 
