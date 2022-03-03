@@ -14,7 +14,9 @@ class PathCreator
     {
         Bounds bounds = m_targetObject.GetComponent<MeshRenderer>().bounds;
         Vector3 topLeft = new Vector3(bounds.min.x, bounds.max.y, bounds.min.z - 0.1f);
+        topLeft = m_targetObject.transform.InverseTransformPoint(topLeft);
         Vector3 bottomRight = new Vector3(bounds.max.x, bounds.min.y, bounds.min.z - 0.1f);
+        bottomRight = m_targetObject.transform.InverseTransformPoint(bottomRight);
         Vector3 center = Vector3.Lerp(topLeft, bottomRight, 0.5f);
         Quaternion direction = Quaternion.LookRotation(bounds.center - center);
 

@@ -1,0 +1,33 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Editing",
+            "id": "588a354f-a42b-4e82-8eac-6d5a2a025b06",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "bed1831a-66c4-4fbf-a35f-a96474b6a69c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5e76dd5c-5cb0-4d92-8462-9d45587da4e4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

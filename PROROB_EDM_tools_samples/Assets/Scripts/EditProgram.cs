@@ -1,5 +1,6 @@
 ﻿using EDMTools;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Prorob.Model;
 
 public class EditProgram : MonoBehaviour
@@ -10,6 +11,8 @@ public class EditProgram : MonoBehaviour
     private EDMTools.EditTool m_editTool = null;
     private RobotPath m_robothPath;
     private Trajectory m_trajectory;
+
+    public InputActionAsset m_actionMap;
 
     void Start()
     {
@@ -24,7 +27,8 @@ public class EditProgram : MonoBehaviour
     {
         m_trajectory = manipulatedSection.Trajectory;
         m_robothPath.SetTrajectory(m_trajectory);
-        GameObject.Destroy(m_editTool.gameObject);
+        if (m_editTool != null)
+            GameObject.Destroy(m_editTool.gameObject);
         m_editTool = null;
     }
 
@@ -40,29 +44,31 @@ public class EditProgram : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Distance Edit Tool");
             m_editTool = editToolGO.AddComponent<EDMTools.DistanceEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
-            m_editTool.Init(GetSection(), m_targetObject);
+            m_editTool.Init(GetSection(), m_targetObject, m_controller, m_actionMap.FindAction("Grab"));
 
         } else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Free form edit tool");
             m_editTool = editToolGO.AddComponent<EDMTools.FreeFormEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
-            m_editTool.Init(GetSection(), m_targetObject);
+            m_editTool.Init(GetSection(), m_targetObject, m_controller, m_actionMap.FindAction("Grab"));
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            m_editTool?.GrabReleased();
             GameObject editToolGO = new GameObject("Direction edit tool");
             m_editTool = editToolGO.AddComponent<EDMTools.DirectionEditTool>();
             m_editTool.ManipulationFinished += FinishEdit;
-            m_editTool.Init(GetSection(), m_targetObject);
+            m_editTool.Init(GetSection(), m_targetObject, m_controller, m_actionMap.FindAction("Grab"));
         }
-        m_editTool?.UpdateControllerPose(m_controller.transform);
-        m_editTool?.GrabPressed();
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            GameObject editToolGO = new GameObject("ScanOffset edit tool");
+            m_editTool = editToolGO.AddComponent<EDMTools.ScanOffsetEditTool>();
+            m_editTool.ManipulationFinished += FinishEdit;
+            m_editTool.Init(GetSection(), m_targetObject, m_controller, m_actionMap.FindAction("Grab"));
+        }
     }
 }
