@@ -190,16 +190,19 @@ MonoBehaviour:
   m_Script: {fileID: 174688657, guid: 59dde5b31d1098540a79a9163ec90ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_transparent: 0
   m_brushContainer: {fileID: 3448399752278275545}
+  m_canvasBase: {fileID: 3519155137001334410}
+  m_transShader: {fileID: 4800000, guid: a87c44b447f18094eac633c9636d7dbe, type: 3}
   m_brushSprite: {fileID: 21300000, guid: 6165bd4cbd3aa4547a94639cea4a2f47, type: 3}
   m_cursorSprite: {fileID: 21300000, guid: fc3de1d522aea9345b54e16efd3cd2e4, type: 3}
   m_canvasCamera: {fileID: 3448399752278275550}
-  m_canvasTexture: {fileID: 8400000, guid: 5124c559a63056b409d7fbbb71d298bb, type: 2}
+  m_renderTexture: {fileID: 8400000, guid: 5124c559a63056b409d7fbbb71d298bb, type: 2}
   m_targetObject: {fileID: 0}
-  brushSize: 0
+  brushSize: 0.5
   paintSpeed: 0.5
-  brushColor: {r: 0, g: 0, b: 0, a: 0}
-  m_showCursor: 0
+  brushColor: {r: 1, g: 0, b: 0, a: 0}
+  m_showCursor: 1
   max_hit_distance: 2
 --- !u!1 &3519155137001334410
 GameObject:
