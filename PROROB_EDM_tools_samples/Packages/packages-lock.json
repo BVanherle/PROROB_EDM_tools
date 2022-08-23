@@ -138,7 +138,7 @@
       "dependencies": {}
     },
     "prorob.model": {
-      "version": "file:F:/Projects/PROROB/prorob_model/Prorob_Model/Packages/prorob.model",
+      "version": "file:F:/Projects/PROROB/FM Project/prorob_model/Prorob_Model/Packages/prorob.model",
       "depth": 0,
       "source": "local",
       "dependencies": {}

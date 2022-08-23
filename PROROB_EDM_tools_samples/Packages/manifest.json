@@ -12,7 +12,7 @@
     "com.unity.timeline": "1.4.8",
     "com.unity.ugui": "1.0.0",
     "edm": "file:F:/Projects/PROROB/Tools/PROROB_EDM_tools/PROROB_EDM_tools/Packages/EDM",
-    "prorob.model": "file:F:/Projects/PROROB/prorob_model/Prorob_Model/Packages/prorob.model",
+    "prorob.model": "file:F:/Projects/PROROB/FM Project/prorob_model/Prorob_Model/Packages/prorob.model",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
